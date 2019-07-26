@@ -54,3 +54,9 @@ body {
   position: absolute;
   bottom: 0px;
 }
+.modal-header {
+  background-color: #512da8;
+}
+.modal-body.input {
+  text-decoration-color: white;
+}
