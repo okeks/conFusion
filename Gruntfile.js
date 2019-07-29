@@ -37,11 +37,40 @@ module.exports = function(grunt) {
               }
             ]
           },
-          fonts: {}
+          fonts: {
+            files: [
+              {
+                expand: true,
+                dot: true,
+                cwd: "node_modules",
+                src: ["fonts/*.*"],
+                dest: "dist"
+              }
+            ]
+          }
         }
+      }
+    },
+    clean: {
+      build: {
+        src: ["dist/"]
+      }
+    },
+    imagemin: {
+      dynamic: {
+        files: [
+          {
+            expand: true,
+            dot: true,
+            cwd: "./",
+            src: ["img/*.{png,jpg,gif}"],
+            dest: "dist/"
+          }
+        ]
       }
     }
   });
   grunt.registerTask("css", ["sass"]);
   grunt.registerTask("default", ["browserSync", "watch"]);
+  grunt.registerTask("build", ["clean", "copy", "imagemin"]);
 };
