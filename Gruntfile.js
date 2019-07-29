@@ -20,14 +20,28 @@ module.exports = function(grunt) {
           src: ["css/*.css", "*.html", "js/*.js"]
         },
         options: {
-         watchTask: true
-         server: {
-          baseDir: './'
-         }
+          watchTask: true,
+          server: {
+            baseDir: "./"
+          }
+        },
+        copy: {
+          html: {
+            files: [
+              {
+                expand: true,
+                dot: true,
+                cwd: "./",
+                src: ["*.html"],
+                dest: "dist"
+              }
+            ]
+          },
+          fonts: {}
         }
       }
     }
   });
   grunt.registerTask("css", ["sass"]);
-  grunt.registerTask('default', ['browserSync','watch'])
+  grunt.registerTask("default", ["browserSync", "watch"]);
 };
