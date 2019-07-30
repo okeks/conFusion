@@ -2,8 +2,8 @@
 var gulp = require("gulp"),
   sass = require("gulp-sass"),
   browserSync = require("browser-sync");
-del = require("del");
-imagemin = require("imagemin");
+  del = require("del");
+  imagemin = require("imagemin");
 gulp.task("sass", function() {
   return gulp
     .src("./css/*.scss")
